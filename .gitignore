@@ -1,3 +1,13 @@
+#custom
+.idea
+.gradle
+gradle/
+gradlew.bat
+gradlew
+build
+target
+.DS_Store
+
 # Compiled class file
 *.class
 
