@@ -20,5 +20,15 @@ public class TestContext {
         return pageObjectManager;
     }
 
+    //user data
+    public String userName;
+    public String firstName;
+    public String lastName;
+    public String birthDay;
+    public String birthMonth;
+    public String birthYear;
+    public String gender;
+    public String country;
+    public String phoneNumber;
 
 }

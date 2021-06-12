@@ -1,12 +1,13 @@
 package cl.page_objects;
 
+import cl.helper.Helper;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 
 import java.io.File;
-import java.sql.Timestamp;
 
 import static cl.config.Configuration.POLLING_DURATION;
 import static cl.config.Configuration.TIMEOUT_DURATION;
@@ -52,6 +53,20 @@ public class PageObjectHelper {
         }
     }
 
+    static void selectItemBoxByVisibleText(WebElement element, String value) {
+        Select selectBox = new Select(element);
+        selectBox.selectByVisibleText(value);
+    }
+
+    static void clickElementByJavascriptExecutor(WebDriver driver, WebElement element) throws  Exception {
+        try {
+            JavascriptExecutor jse = (JavascriptExecutor)driver;
+            jse.executeScript("arguments[0].click();", element);
+        } catch (Exception e) {
+            throw new Exception("Error: " + e.getMessage());
+        }
+    }
+
     static String getAttributeTextByValueFromElement(WebDriver driver, WebElement element, String value) throws Exception {
         if (fluentWaitElement(driver, element)) {
             return element.getAttribute(value);
@@ -60,10 +75,16 @@ public class PageObjectHelper {
         }
     }
 
+    static String getSelectTextFromDropdownList(WebElement element) throws Exception {
+        Select selectBox = new Select(element);
+        return  selectBox.getFirstSelectedOption().getText();
+    }
+
     static void TakeScreenshot(WebDriver driver, String fileName) throws Exception  {
-        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        String timeStampString = Long.toString(timestamp.getTime());
+        String timeStampString = Helper.getTimeStamp();
         File File = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(File,new File("src/main/resources/screenshots/"+ fileName + timeStampString  + ".png"));
     }
+
+
 }

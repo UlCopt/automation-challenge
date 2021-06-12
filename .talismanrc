@@ -1,0 +1,4 @@
+fileignoreconfig:
+- filename: src/test/java/cl/features/Challenge.feature
+  checksum: bc90efdc7788f8dfc2de49326994dfd91e9340456b12a999d382f2fb253d7e05
+
