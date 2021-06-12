@@ -30,7 +30,7 @@ docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:4.0.0
 
 Run tests
 ```
-docker run -d --network="host" mydockerimage gradle cucumber   
+docker run -d --network="host" mydockerimage gradle cucumber -Dbrowser=docker-chrome 
 ```
 
 Optional (check logs)
