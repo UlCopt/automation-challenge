@@ -5,8 +5,10 @@ Java Selenium Cucumber Gradle Docker project
 
 
 ## Prerequisites
-Docker installed
-MacOS if you run it local with Chrome Browser
+Docker installed 
+MacOS with Chrome Browser installed (only if run local)
+Gradle installed (only if run local)
+java 8 (only if run local)
 
 ##  How to run on Docker
 #### Type on terminal
